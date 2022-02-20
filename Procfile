@@ -1,2 +1,2 @@
 
-worker: python pepper.py
+web: python pepper.py
