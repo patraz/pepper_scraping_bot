@@ -36,7 +36,7 @@ while True:
             print ("Zanotowano zmiane o: "+ str(datetime.now()) + first_prod_title)
             link = r_products[0].attrs['href']
             prev_first_title = first_prod_title
-            obj = Emailer(subject=f"{first_prod_title}", template_html='template.html', context={'offer': first_prod_title, 'link' : link}, to_emails = ['patrykprause@gmail.com'], test_send = False)
+            obj = Emailer(subject=f"{first_prod_title}", template_html='template.html', context={'offer': first_prod_title, 'link' : link}, to_emails = [os.environ.get('TO_MAIL')], test_send = False)
             obj.send()
     else:
         print('no changes ' + str(datetime.now()))
