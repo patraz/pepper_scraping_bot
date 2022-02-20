@@ -1,5 +1,5 @@
 pepperscraper.code-workspace
-Procfile
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
