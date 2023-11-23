@@ -3,16 +3,24 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 import os
 from templates import Template
+from dotenv import load_dotenv
 
-username =  os.environ.get('USERNAME')
-password =  os.environ.get('PASSWORD')
+
+load_dotenv()
+
+username =  os.environ.get('USERNAME_EMAIL')
+password =  os.environ.get('PASSWORD_EMAIL')
+
+
+print('username', username)
+print('password', password)
 
 class Emailer():
     to_emails = []
     subject = ''
     has_html = False
     test_send = False
-    from_email = " Pepper bot"
+    from_email = "flashio@patraz.online"
     template_html = None
     template_name = None
     context = {}
@@ -56,7 +64,7 @@ class Emailer():
         msg = self.format_msg()
         did_send = False
         if not self.test_send:
-            with smtplib.SMTP(host='smtp.gmail.com', port=587) as server:
+            with smtplib.SMTP(host='in-v3.mailjet.com', port=587) as server:
                 server.ehlo()
                 server.starttls()
                 server.login(username, password)
