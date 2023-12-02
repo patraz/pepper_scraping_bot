@@ -7,7 +7,7 @@ import time
 
 session = HTMLSession()
 
-BASE_DIR = os.path.dirname(__file__)
+# BASE_DIR = os.path.dirname(__file__)
 
 load_dotenv()
 
