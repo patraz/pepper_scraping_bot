@@ -16,7 +16,7 @@ prev_first_title = ""
 FirstRun = True
 scraping_site = os.environ['PEPPER_SCRAPING_SITE']
 my_list = ['piżama', 'ps4', 'nintendo', 'm&m', 'kucharska', 'nawilżacz', 'puzzle', 'air fryer']
-
+print('DUPAAAAAAAAAA')
 while True:
     r = session.get('https://www.pepper.pl/gorące')
     first_prod = r.html.find('.cept-tt', first=True)
