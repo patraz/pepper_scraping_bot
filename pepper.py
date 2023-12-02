@@ -17,7 +17,7 @@ headers = {
 
 prev_first_title = ""
 FirstRun = True
-scraping_site = os.environ.get('PEPPER_SCRAPING_SITE')
+scraping_site = os.environ['PEPPER_SCRAPING_SITE']
 my_list = ['piżama', 'ps4', 'nintendo', 'm&m', 'kucharska', 'nawilżacz', 'puzzle', 'air fryer']
 
 while True:
