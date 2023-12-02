@@ -11,4 +11,4 @@ RUN chmod +x pepper.py
 
 EXPOSE 80
 
-CMD ["python pepper.py"]
+CMD ["python"] ["pepper.py"]
