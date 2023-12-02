@@ -8,6 +8,8 @@ RUN pip3 install -r requirements.txt
 
 COPY . /usr/src/app
 
+RUN chmod +x runserver.sh
+
 EXPOSE 80
 
-CMD ["python", "pepper.py"]
+CMD ["runserver.sh"]
