@@ -6,7 +6,7 @@ from templates import Template
 
 
 username =  os.environ['USERNAME_EMAIL']
-password =  os.environ['PASSWORD_EMAIL']
+password =  os.environ['PASSWORD_EMAIL')
 
 
 print('username', username)
