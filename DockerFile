@@ -11,4 +11,6 @@ COPY . /usr/src/app
 # Set executable permission
 RUN chmod +x pepper.py
 
+EXPOSE 80
+
 CMD ["python", "pepper.py"]
