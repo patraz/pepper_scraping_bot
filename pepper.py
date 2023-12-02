@@ -24,8 +24,6 @@ while True:
     r = session.get('https://www.pepper.pl/gorące')
     first_prod = r.html.find('.cept-tt', first=True)
     first_prod_title = first_prod.attrs['title']
-    print(first_prod_title)
-
     
     if prev_first_title != first_prod_title:
         if FirstRun == True:
