@@ -3,11 +3,13 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 import os
 from templates import Template
+
+from os.path import join, dirname
 from dotenv import load_dotenv
 
-
-load_dotenv()
-
+dotenv_path = join(dirname(__file__), '.env')
+load_dotenv(dotenv_path)
+print(os.environ.get('USERNAME_EMAIL'))
 username =  os.environ.get('USERNAME_EMAIL')
 password =  os.environ.get('PASSWORD_EMAIL')
 
