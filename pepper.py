@@ -1,6 +1,5 @@
 from datetime import datetime
 from send_mail import Emailer
-# from dotenv import load_dotenv
 from requests_html import HTMLSession
 import os
 import time
@@ -20,7 +19,6 @@ headers = {
 
 prev_first_title = ""
 FirstRun = True
-scraping_site = os.environ['PEPPER_SCRAPING_SITE']
 my_list = ['piżama', 'ps4', 'nintendo', 'm&m', 'kucharska', 'nawilżacz', 'puzzle', 'air fryer']
 print('DUPAAAAAAAAAA')
 while True:
@@ -34,7 +32,7 @@ while True:
         if FirstRun == True:
             prev_first_title = first_prod_title
             FirstRun = False
-            print ("Zaczynam monitorować "+ scraping_site + " "+ str(datetime.now()))
+            print ("Zaczynam monitorować "+ 'https://www.pepper.pl/gorące' + " "+ str(datetime.now()))
         else:
             print ("Zanotowano zmiane o: "+ str(datetime.now()) + first_prod_title)
             for item in my_list:
