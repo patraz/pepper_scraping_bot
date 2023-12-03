@@ -11,8 +11,6 @@ from dotenv import load_dotenv
 dotenv_path = join(dirname(__file__), '.env')
 load_dotenv(dotenv_path)
 
-
-
 session = HTMLSession()
 
 
@@ -23,7 +21,6 @@ headers = {
 prev_first_title = ""
 FirstRun = True
 my_list = ['piżama', 'ps4', 'nintendo', 'm&m', 'kucharska', 'nawilżacz', 'puzzle', 'air fryer']
-print('DUPAAAAAAAAAA')
 while True:
     r = session.get('https://www.pepper.pl/gorące')
     first_prod = r.html.find('.cept-tt', first=True)
@@ -36,6 +33,8 @@ while True:
             prev_first_title = first_prod_title
             FirstRun = False
             print ("Zaczynam monitorować "+ 'https://www.pepper.pl/gorące' + " "+ str(datetime.now()))
+            obj = Emailer(subject=f"Test Mail", template_html='template.html', context={'offer': first_prod_title, 'link' : first_prod_link}, to_emails = [os.environ.get('TO_MAIL')], test_send = False)
+            obj.send()
         else:
             print ("Zanotowano zmiane o: "+ str(datetime.now()) + first_prod_title)
             for item in my_list:
@@ -45,9 +44,9 @@ while True:
                     first_prod_link = first_prod.attrs['href']
                     obj = Emailer(subject=f"{first_prod_title}", template_html='template.html', context={'offer': first_prod_title, 'link' : first_prod_link}, to_emails = [os.environ.get('TO_MAIL')], test_send = False)
                     obj.send()
+                    print(f'wysłano mail z {item}')
             prev_first_title = first_prod_title
-    else:
-        print('no changes ' + str(datetime.now()))
+    
     time.sleep(60)
     continue
 
