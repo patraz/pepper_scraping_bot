@@ -33,7 +33,7 @@ while True:
             prev_first_title = first_prod_title
             FirstRun = False
             print ("Zaczynam monitorować "+ 'https://www.pepper.pl/gorące' + " "+ str(datetime.now()))
-            obj = Emailer(subject=f"Test Mail", template_html='template.html', context={'offer': first_prod_title, 'link' : first_prod_link}, to_emails = [os.environ.get('TO_MAIL')], test_send = False)
+            obj = Emailer(subject=f"Test Mail", template_html='template.html', context={'offer': first_prod_title, 'link' : 'https://google.pl'}, to_emails = [os.environ.get('TO_MAIL')], test_send = False)
             obj.send()
         else:
             print ("Zanotowano zmiane o: "+ str(datetime.now()) + first_prod_title)

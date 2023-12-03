@@ -9,13 +9,11 @@ from dotenv import load_dotenv
 
 dotenv_path = join(dirname(__file__), '.env')
 load_dotenv(dotenv_path)
-print(os.environ.get('USERNAME_EMAIL'))
+
 username =  os.environ.get('USERNAME_EMAIL')
 password =  os.environ.get('PASSWORD_EMAIL')
 
 
-print('username', username)
-print('password', password)
 
 class Emailer():
     to_emails = []
