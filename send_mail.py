@@ -10,9 +10,8 @@ from dotenv import load_dotenv
 dotenv_path = join(dirname(__file__), '.env')
 load_dotenv(dotenv_path)
 
-username =  os.environ.get('USERNAME_EMAIL')
-password =  os.environ.get('PASSWORD_EMAIL')
-
+username = os.environ.get('USERNAME_EMAIL')
+password = os.environ.get('PASSWORD_EMAIL')
 
 
 class Emailer():
@@ -25,7 +24,7 @@ class Emailer():
     template_name = None
     context = {}
 
-    def __init__(self, subject='', template_name= None, context = {}, template_html=None, to_emails=None, test_send = False):
+    def __init__(self, subject='', template_name=None, context={}, template_html=None, to_emails=None, test_send=False):
         if template_name == None and template_html == None:
             raise Exception("You have to put template")
         assert isinstance(to_emails, list)
@@ -35,25 +34,27 @@ class Emailer():
         if template_html != None:
             self.has_html = True
             self.template_html = template_html
-            
+
         self.template_name = template_name
         self.test_send = test_send
         self.context = context
 
     def format_msg(self):
-        
+
         msg = MIMEMultipart('alternative')
         msg['From'] = self.from_email
         msg['To'] = ', '.join(self.to_emails)
         msg['Subject'] = self.subject
 
         if self.template_name != None:
-            tmpl_str = Template(template_name=self.template_name, context = self.context)
+            tmpl_str = Template(
+                template_name=self.template_name, context=self.context)
             txt_part = MIMEText(tmpl_str.render(), 'plain')
             msg.attach(txt_part)
             print(txt_part)
         if self.template_html != None:
-            tmpl_html = Template(template_name=self.template_html, context = self.context)
+            tmpl_html = Template(
+                template_name=self.template_html, context=self.context)
             html_part = MIMEText(tmpl_html.render(), 'html')
             msg.attach(html_part)
             print(html_part)
@@ -70,12 +71,7 @@ class Emailer():
                 server.login(username, password)
                 try:
                     server.sendmail(self.from_email, self.to_emails, msg)
-                    did_send=True
+                    did_send = True
                 except:
                     did_send = False
                 return did_send
-
-
-
-
-

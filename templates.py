@@ -10,12 +10,13 @@ FILE_PATH = os.path.abspath(__file__)
 BASE_DIR = os.path.dirname(FILE_PATH)
 TEMPLATE_DIR = os.path.join(BASE_DIR, "templates")
 
+
 class Template:
     template_name = None
     context = None
 
-    def __init__(self, template_name='', context ={}, *args, **kwargs):
-        self.template_name =template_name
+    def __init__(self, template_name='', context={}, *args, **kwargs):
+        self.template_name = template_name
         self.context = context
 
     def get_template(self):
