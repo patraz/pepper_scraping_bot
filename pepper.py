@@ -36,7 +36,6 @@ while True:
     price = r.html.find(
         '.thread-price.text--b.cept-tp.size--all-l.size--fromW3-xl', first=True).text
     first_prod_title = first_prod.attrs['title']
-    print(f'{first_prod_title} za {price}')
 
     # if there is a new product, check if its in the list
     if prev_first_title != first_prod_title:
