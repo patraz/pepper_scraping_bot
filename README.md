@@ -4,12 +4,19 @@ Bot that sends you e-mail when new listing on pepper contains one of your prefer
 
 Just add .env file with
 
-USERNAME = mail of gmail account you will send emails from
-PASSWORD = password for this email
+smtp credintials
+
+USERNAME = 
+PASSWORD = 
+
 PEPPER_SCRAPING_SITE = https://www.pepper.pl/nowe - or other url of pepper.pl
+
 TO_MAIL= mail where bot will send new listings on PEPPER_SCRAPING_SITE
+
+edit send_mail.py according to your smtp provider
 
 and edit pepper.py to your needs 
 for example
 
 my_list = ['game', 'ps4', 'laptop']
+
