@@ -25,10 +25,7 @@ link = os.environ.get('PEPPER_SCRAPING_SITE')
 
 
 my_list = [
-    'piżama', 'ps4', 'nintendo', 'm&m',
-    'kucharska', 'nawilżacz', 'puzzle',
-    'air fryer', 'lampki', 'zegarek',
-    'choinka',
+    'nintendo', 'lego'
 ]
 
 
