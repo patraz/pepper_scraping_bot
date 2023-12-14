@@ -19,6 +19,7 @@ headers = {
 
 
 prev_first_title = ""
+
 FirstRun = True
 
 link = os.environ.get('PEPPER_SCRAPING_SITE')
@@ -28,12 +29,15 @@ my_list = [
     'nintendo', 'lego'
 ]
 
-
 while True:
     r = session.get(link)
     # finding first product and its title
     first_prod = r.html.find('.cept-tt', first=True)
+    price = r.html.find(
+        '.thread-price.text--b.cept-tp.size--all-l.size--fromW3-xl', first=True).text
     first_prod_title = first_prod.attrs['title']
+    print(f'{first_prod_title} za {price}')
+
     # if there is a new product, check if its in the list
     if prev_first_title != first_prod_title:
         if FirstRun:
@@ -59,7 +63,7 @@ while True:
                         subject=f"{first_prod_title}",
                                 template_html='template.html',
                         context={
-                            'offer': first_prod_title, 'link': first_prod_link},
+                            'offer': first_prod_title, 'link': first_prod_link, 'price': price},
                         to_emails=[os.environ.get('TO_MAIL')],
                         test_send=False)
 
